@@ -1,20 +1,14 @@
-import masks
+from src.masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(masks_account_card: str) -> str:
+def mask_account_card(account_card: str) -> str:
     """Функция принимает на вход номер счета или карты и возвращает их маску"""
-
-    bank_account = "Счет"
-    index_card = masks_account_card.find(bank_account)
-    list_account_card = masks_account_card.split(" ")
-    if index_card == -1:
-        list_account_card[-1] = masks.get_mask_card_number(list_account_card[-1])
-        masks_account_card = " ".join(list_account_card)
-        return masks_account_card
+    name, number = account_card.rsplit(" ", maxsplit=1)
+    if name.lower() == "счет":
+        masked_number = get_mask_account(number)
     else:
-        list_account_card[-1] = masks.get_mask_account(list_account_card[-1])
-        masks_account_card = " ".join(list_account_card)
-        return masks_account_card
+        masked_number = get_mask_card_number(number)
+    return f"{name} {masked_number}"
 
 
 def get_date(date: str) -> str:
