@@ -4,7 +4,7 @@ def get_mask_card_number(card_number: str) -> str:
     if card_number.isdigit() and len(card_number) == 16:
         return f"{card_number[0:4]} {card_number[4:6]}** **** {card_number[12:]}"
     else:
-        return ''
+        return ""
 
 
 def get_mask_account(account: str) -> str:
@@ -12,4 +12,4 @@ def get_mask_account(account: str) -> str:
     if account.isdigit() and len(account) == 20:
         return f"{'*' * 2}{account[16:]}"
     else:
-        return ''
+        return ""
