@@ -1,5 +1,4 @@
-from typing import Iterable
-from typing import Any
+from typing import Any, Iterable
 
 
 def filter_by_state(filter_state: Iterable, state="EXECUTED") -> Any and Iterable:
@@ -8,14 +7,11 @@ def filter_by_state(filter_state: Iterable, state="EXECUTED") -> Any and Iterabl
 
     new_filter_state = []
     for dictionary_state in filter_state:
-        if dictionary_state['state'] == state:
+        if dictionary_state["state"] == state:
             new_filter_state.append(dictionary_state)
     return new_filter_state
 
 
-
 def sort_by_date(sort_date: Iterable, reverse=True) -> Any and Iterable:
-    sorted_date = sorted(sort_date, key=lambda dictionary_date: dictionary_date['date'], reverse=reverse)
+    sorted_date = sorted(sort_date, key=lambda dictionary_date: dictionary_date["date"], reverse=reverse)
     return sorted_date
-
-
