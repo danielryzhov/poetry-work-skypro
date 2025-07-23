@@ -13,5 +13,6 @@ def filter_by_state(filter_state: Iterable, state="EXECUTED") -> Any and Iterabl
 
 
 def sort_by_date(sort_date: Iterable, reverse=True) -> Any and Iterable:
+    '''Функция принимает список словарей и возвращает новый список отсортированный по дате'''
     sorted_date = sorted(sort_date, key=lambda dictionary_date: dictionary_date["date"], reverse=reverse)
     return sorted_date
