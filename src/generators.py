@@ -1,5 +1,6 @@
 def filter_by_currency(transactions, code="USD"):
-    """Функция возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD)"""
+    """Функция возвращает итератор, который поочередно выдает транзакции,
+    где валюта операции соответствует заданной (например, USD)"""
     for transaction in transactions:
         if transaction["operationAmount"]["currency"]["code"] == code:
             yield transaction
@@ -12,7 +13,8 @@ def transaction_descriptions(transactions):
 
 
 def card_number_generator(number=1, end_card=9999999999999999):
-    """Генератор card_number_generator, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты"""
+    """Генератор card_number_generator, который выдает номера банковских карт
+     в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты"""
     while number <= end_card:
         number_line = str(number)
         card_number = number_line.zfill(16)

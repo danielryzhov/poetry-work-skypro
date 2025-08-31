@@ -1,6 +1,3 @@
-from typing import Any, Iterable
-
-
 def filter_by_state(filter_state: list[dict], state="EXECUTED") -> list[dict]:
     """Функция принимает список словарей и возвращает новый список словарей содержащий только
     те словари, у которых ключ state соответствует указанному значению"""
