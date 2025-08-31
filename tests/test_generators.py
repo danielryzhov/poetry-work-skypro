@@ -68,8 +68,9 @@ def test_filter_by_currency_no_transactions(by_transactions):
         "from": "Visa Classic 6831982476737658",
         "to": "Visa Platinum 8990922113665229",
     }, "Перевод с карты на карту")])
-def test_transaction_descriptions_one(transactions_description, expected):
-    assert transaction_descriptions([transactions_description]) == expected
+def test_transaction_descriptions(transactions_description, expected):
+    generator_transaction_descriptions = transaction_descriptions([transactions_description])
+    assert next(generator_transaction_descriptions) == expected
 
 
 def test_transaction_descriptions(by_transactions):
